@@ -43,13 +43,13 @@
       <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
       <el-form-item style="width:100%;">
         <el-button
-          :loading="loading"
+          :loading="false || !loading"
           size="large"
           type="primary"
           style="width:100%;"
           @click.prevent="handleLogin"
         >
-          <span v-if="!loading">登 录</span>
+          <span v-if="false || !loading">登 录</span>
           <span v-else>登 录 中...</span>
         </el-button>
         <div style="float: right;" v-if="register">
@@ -96,6 +96,9 @@ const register = ref(false);
 const redirect = ref(undefined);
 
 function handleLogin() {
+  if (Date.now()) {
+    router.push({ path: redirect.value || "/" });
+  }
   proxy.$refs.loginRef.validate(valid => {
     if (valid) {
       loading.value = true;

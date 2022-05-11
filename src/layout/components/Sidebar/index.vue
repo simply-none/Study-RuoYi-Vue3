@@ -32,6 +32,9 @@ const route = useRoute();
 const store = useStore();
 
 const sidebarRouters =  computed(() => store.getters.sidebarRouters);
+
+console.log(sidebarRouters, '获取侧栏路由')
+
 const showLogo = computed(() => store.state.settings.sidebarLogo);
 const sideTheme = computed(() => store.state.settings.sideTheme);
 const theme = computed(() => store.state.settings.theme);

@@ -4,6 +4,8 @@ import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView'
 import InnerLink from '@/layout/components/InnerLink'
 
+import rdata from './routerdata'
+
 // 匹配views里面所有的.vue文件
 const modules = import.meta.glob('./../../views/**/*.vue')
 
@@ -27,6 +29,7 @@ const permission = {
       state.topbarRouters = routes
     },
     SET_SIDEBAR_ROUTERS: (state, routes) => {
+      console.log(Object.prototype.toString.call(routes), '获取路由类型')
       state.sidebarRouters = routes
     },
   },
@@ -35,19 +38,20 @@ const permission = {
     GenerateRoutes({ commit }) {
       return new Promise(resolve => {
         // 向后端请求路由数据
-        getRouters().then(res => {
-          const sdata = JSON.parse(JSON.stringify(res.data))
-          const rdata = JSON.parse(JSON.stringify(res.data))
-          const defaultData = JSON.parse(JSON.stringify(res.data))
+        // getRouters().then(() => {
+          const sdata = JSON.parse(JSON.stringify(rdata))
+          const rdataoo = JSON.parse(JSON.stringify(rdata))
+          const defaultData = JSON.parse(JSON.stringify(rdata))
           const sidebarRoutes = filterAsyncRouter(sdata)
-          const rewriteRoutes = filterAsyncRouter(rdata, false, true)
+          const rewriteRoutes = filterAsyncRouter(rdataoo, false, true)
           const defaultRoutes = filterAsyncRouter(defaultData)
           commit('SET_ROUTES', rewriteRoutes)
           commit('SET_SIDEBAR_ROUTERS', constantRoutes.concat(sidebarRoutes))
+          console.log(constantRoutes.concat(sidebarRoutes), '请求到的路由')
           commit('SET_DEFAULT_ROUTES', sidebarRoutes)
           commit('SET_TOPBAR_ROUTES', defaultRoutes)
           resolve(rewriteRoutes)
-        })
+        // })
       })
     }
   }

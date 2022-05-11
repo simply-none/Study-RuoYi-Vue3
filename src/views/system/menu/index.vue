@@ -48,7 +48,7 @@
 
       <el-table
          v-if="refreshTable"
-         v-loading="loading"
+         v-loading="false || !loading"
          :data="menuList"
          row-key="menuId"
          :default-expand-all="isExpandAll"

@@ -46,7 +46,8 @@ export const constantRoutes = [
   },
   {
     path: "/:pathMatch(.*)*",
-    component: () => import('@/views/error/404'),
+    redirect: '/index',
+    // component: () => import('@/views/error/404'),
     hidden: true
   },
   {

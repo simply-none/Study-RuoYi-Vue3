@@ -54,13 +54,13 @@
       </el-form-item>
       <el-form-item style="width:100%;">
         <el-button
-          :loading="loading"
+          :loading="false || !loading"
           size="large" 
           type="primary"
           style="width:100%;"
           @click.prevent="handleRegister"
         >
-          <span v-if="!loading">注 册</span>
+          <span v-if="false || !loading">注 册</span>
           <span v-else>注 册 中...</span>
         </el-button>
         <div style="float: right;">

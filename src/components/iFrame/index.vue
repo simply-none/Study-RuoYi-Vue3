@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="loading" :style="'height:' + height">
+  <div v-loading="false" :style="'height:' + height">
     <iframe 
       :src="url" 
       frameborder="no" 

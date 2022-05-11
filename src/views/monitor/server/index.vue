@@ -176,11 +176,11 @@ const server = ref([]);
 const { proxy } = getCurrentInstance();
 
 function getList() {
-  proxy.$modal.loading("正在加载服务监控数据，请稍候！");
-  getServer().then(response => {
-    server.value = response.data;
-    proxy.$modal.closeLoading();
-  });
+  // proxy.$modal.loading("正在加载服务监控数据，请稍候！");
+  // getServer().then(response => {
+  //   server.value = response.data;
+  //   proxy.$modal.closeLoading();
+  // });
 }
 
 getList();

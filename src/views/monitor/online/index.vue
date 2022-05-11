@@ -23,7 +23,7 @@
          </el-form-item>
       </el-form>
       <el-table
-         v-loading="loading"
+         v-loading="false || !loading"
          :data="onlineList.slice((pageNum - 1) * pageSize, pageNum * pageSize)"
          style="width: 100%;"
       >

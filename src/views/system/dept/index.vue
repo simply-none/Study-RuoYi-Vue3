@@ -48,7 +48,7 @@
 
       <el-table
          v-if="refreshTable"
-         v-loading="loading"
+         v-loading="false || !loading"
          :data="deptList"
          row-key="deptId"
          :default-expand-all="isExpandAll"
