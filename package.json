@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-	"build:prod": "vite build",
+    "build:prod": "vite build",
     "build:stage": "vite build --mode staging",
     "preview": "vite preview"
   },
@@ -30,6 +30,7 @@
     "vuex": "4.0.2"
   },
   "devDependencies": {
+    "@vueuse/core": "^8.4.2",
     "@vitejs/plugin-vue": "2.3.1",
     "@vue/compiler-sfc": "3.2.31",
     "sass": "1.50.0",
